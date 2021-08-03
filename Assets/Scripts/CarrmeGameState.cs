@@ -38,8 +38,7 @@ public class CarrmeGameState : MonoBehaviour
 
     void ProjectPlayerStone(Vector3 targetPoint)
     {
-        Vector3 realSpeed = targetPoint.normalized * 100;
-        stoneProjector.ProjectStone(realSpeed);
+        stoneProjector.ProjectStone(targetPoint);
         stoneProjector.SetNewStone(new Vector3(8, 0.2f, 0));
     }
 

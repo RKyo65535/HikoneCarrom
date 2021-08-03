@@ -17,15 +17,9 @@ public class InputMouseReseaver : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
 
-            Debug.Log("マウス押しました");
-            Debug.Log("始点は"+ mainCamera.ScreenToWorldPoint(Input.mousePosition));
-            Debug.Log("向きは"+ mainCamera.transform.localEulerAngles);
-            //タッチされた部分から、カメラの向きに向かってRayを発射する
-            RaycastHit[] hits = Physics.RaycastAll(mainCamera.ScreenToWorldPoint(Input.mousePosition), mainCamera.transform.localEulerAngles,30);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            
-
-            Debug.DrawRay(mainCamera.ScreenToWorldPoint(Input.mousePosition), mainCamera.transform.localEulerAngles);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 30);
 
             foreach (RaycastHit hit in hits)
             {
@@ -33,7 +27,7 @@ public class InputMouseReseaver : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Ground"))
                 {
                     action(hit.point);
-                    Debug.Log("イベント発火");
+                    Debug.Log(hit.point);
                 }
             }
 
