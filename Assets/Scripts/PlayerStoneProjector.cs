@@ -6,19 +6,22 @@ public class PlayerStoneProjector : MonoBehaviour
 {
 
     [SerializeField] GameObject stone;
-    [SerializeField] Vector3 initialPos;
     [SerializeField] Material playerMaterial;//プレイヤー用のマテリアル
 
-    // Update is called once per frame
-    void Update()
+    GameObject currentMyStone;//現在操作中の石
+
+
+    public void SetNewStone(Vector3 startPos)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject obj = Instantiate(stone);
-            obj.GetComponent<Rigidbody>().position = initialPos;
-            obj.transform.position = initialPos;
-            obj.GetComponent<Rigidbody>().velocity = new Vector3(initialPos.normalized.x, 0, initialPos.normalized.z) * -100;
-            obj.GetComponent<MeshRenderer>().material = playerMaterial;
-        }
+        GameObject currentMyStone = Instantiate(stone);
+        currentMyStone.transform.position = startPos;
+        currentMyStone.GetComponent<MeshRenderer>().material = playerMaterial;
     }
+
+    public void ProjectStone(Vector3 velocity)
+    {
+        currentMyStone.GetComponent<Rigidbody>().velocity = velocity;
+    }
+
+
 }
