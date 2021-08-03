@@ -11,16 +11,20 @@ public class StoneInitialPlacementer : MonoBehaviour
     [SerializeField] int numOfStonesOfOneTeam;
 
     [SerializeField] Material[] materials;//青と赤のマテリアルで色を飾る 
+    [SerializeField] Material kingMaterial;//最後に倒す用のマテリアル
 
     // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
+        //==============================
+        //最初に、普通の色の石を配置する
+        //==============================
+
         Transform TF = transform;
         //まずは分母を求める
         float sine1 = Mathf.Sin((numOfStonesOfOneTeam * 2 - 2) * 180f * Mathf.Deg2Rad / (numOfStonesOfOneTeam * 4));
         //分子も求める
         float sine2 = Mathf.Sin(360 * Mathf.Deg2Rad / (numOfStonesOfOneTeam * 2));
-
         float tempRadius = 2 * carromSize * sine1 / sine2;
 
         for (int i = 0; i < numOfStonesOfOneTeam * 2; i++)
@@ -30,7 +34,13 @@ public class StoneInitialPlacementer : MonoBehaviour
             obj.transform.position = new Vector3(Mathf.Cos(angle), 1, Mathf.Sin(angle)) * tempRadius;
             SetMaterialWithIndex(obj, i);
         }
-
+        //==============================
+        //キングの石を配置する
+        //==============================
+        GameObject kingObj = Instantiate(stone, TF);
+        kingObj.GetComponent<MeshRenderer>().material = kingMaterial;
+        kingObj.transform.position = Vector3.up;
+        kingObj.transform.localScale *= 1.2f;//ちょっと大きめにする
 
     }
 
