@@ -10,7 +10,6 @@ public class StoneInitialPlacementer : MonoBehaviour
     [Tooltip("1チームあたりが落とさないといけない石の数 > 2")]
     [SerializeField] int numOfStonesOfOneTeam;
 
-    [SerializeField] Material[] materials;//青と赤のマテリアルで色を飾る 
     [SerializeField] Material kingMaterial;//最後に倒す用のマテリアル
 
     // Start is called before the first frame update
@@ -32,7 +31,7 @@ public class StoneInitialPlacementer : MonoBehaviour
             float angle = 360f / (numOfStonesOfOneTeam * 2) * i * Mathf.Deg2Rad;
             GameObject obj = Instantiate(stone,TF);
             obj.transform.position = new Vector3(Mathf.Cos(angle), 1, Mathf.Sin(angle)) * tempRadius;
-            SetMaterialWithIndex(obj, i);
+            obj.GetComponent<NormalStoneInfomation>().SetMyAttribute((NormalStoneInfomation.StoneAttribute)(i % 2));
         }
         //==============================
         //キングの石を配置する
@@ -44,10 +43,6 @@ public class StoneInitialPlacementer : MonoBehaviour
 
     }
 
-    void SetMaterialWithIndex(GameObject obj, int index)
-    {
-        obj.GetComponent<MeshRenderer>().material = materials[index % 2];
-    }
 
 
 }

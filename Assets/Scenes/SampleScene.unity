@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 16561296}
   - component: {fileID: 16561295}
   - component: {fileID: 16561294}
+  - component: {fileID: 16561297}
   m_Layer: 0
   m_Name: GoalZone
   m_TagString: Untagged
@@ -246,6 +247,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16561292}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &16561297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16561292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d19823a46897d5408f7f2f615e87aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &42333068
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +538,7 @@ GameObject:
   - component: {fileID: 203992441}
   - component: {fileID: 203992440}
   - component: {fileID: 203992439}
+  - component: {fileID: 203992442}
   m_Layer: 0
   m_Name: GoalZone (2)
   m_TagString: Untagged
@@ -606,6 +620,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203992437}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &203992442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203992437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d19823a46897d5408f7f2f615e87aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &369703142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,9 +1092,6 @@ MonoBehaviour:
   stone: {fileID: 614642559798053292, guid: c133275fc26d26943a53e5a3b2479677, type: 3}
   carromSize: 0.4
   numOfStonesOfOneTeam: 12
-  materials:
-  - {fileID: 2100000, guid: cbbcd202b8bce1e4294a025426ed1a26, type: 2}
-  - {fileID: 2100000, guid: a86fab5a43c71a6438b34b8e7f8e434f, type: 2}
   kingMaterial: {fileID: 2100000, guid: 763146cc776d54b438a884e7f70f425f, type: 2}
 --- !u!4 &1134034354
 Transform:
@@ -1096,6 +1119,7 @@ GameObject:
   - component: {fileID: 1457448555}
   - component: {fileID: 1457448554}
   - component: {fileID: 1457448553}
+  - component: {fileID: 1457448556}
   m_Layer: 0
   m_Name: GoalZone (3)
   m_TagString: Untagged
@@ -1177,6 +1201,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457448551}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1457448556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457448551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d19823a46897d5408f7f2f615e87aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1533567768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,6 +1225,7 @@ GameObject:
   - component: {fileID: 1533567772}
   - component: {fileID: 1533567771}
   - component: {fileID: 1533567770}
+  - component: {fileID: 1533567773}
   m_Layer: 0
   m_Name: GoalZone (1)
   m_TagString: Untagged
@@ -1270,6 +1307,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533567768}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1533567773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533567768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d19823a46897d5408f7f2f615e87aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1585480941
 GameObject:
   m_ObjectHideFlags: 0

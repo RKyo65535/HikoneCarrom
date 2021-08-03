@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class ClearZone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        NormalStoneInfomation temp = collision.gameObject.GetComponent<NormalStoneInfomation>();
+        if(temp != null)
+        {
+            temp.DeleteMyself();
+        }
     }
 }
