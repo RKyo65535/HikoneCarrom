@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class StopAndDeleteStone : MonoBehaviour
     [Tooltip("何秒止まっていたら消えるか")]
     [SerializeField] float timeLimit;
     float count;
+
+    public Action beforeDeleteMyself;
 
     Rigidbody RB;
 
@@ -25,6 +28,7 @@ public class StopAndDeleteStone : MonoBehaviour
             count += Time.deltaTime;
             if(count > timeLimit)
             {
+                beforeDeleteMyself();
                 Destroy(gameObject);
             }
         }

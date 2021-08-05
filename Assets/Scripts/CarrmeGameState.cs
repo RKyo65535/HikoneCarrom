@@ -30,7 +30,7 @@ public class CarrmeGameState : MonoBehaviour
     void Start()
     {
         stoneInitialPlacementer.Initialize();
-        stoneProjector.SetNewStone(new Vector3(8, 0.2f, 0));
+        ResetPlayerStone();
 
         inputMouseReseaver.action = ProjectPlayerStone;
 
@@ -38,8 +38,22 @@ public class CarrmeGameState : MonoBehaviour
 
     void ProjectPlayerStone(Vector3 targetPoint)
     {
-        stoneProjector.ProjectStone(targetPoint);
-        stoneProjector.SetNewStone(new Vector3(8, 0.2f, 0));
+        if(gameState == GameState.WAIT_FOR_SHOOT)
+        {
+            stoneProjector.ProjectStone(targetPoint);
+            gameState = GameState.SIMURATING;
+        }
+        else
+        {
+
+        }
+    }
+
+
+    void ResetPlayerStone()
+    {
+        gameState = GameState.WAIT_FOR_SHOOT;//カロムがはじかれるのを待っている状態
+        stoneProjector.SetNewStone(new Vector3(8, 0.2f, 0),ResetPlayerStone);
     }
 
 
