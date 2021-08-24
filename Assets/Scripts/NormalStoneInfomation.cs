@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalStoneInfomation : MonoBehaviour
+public class NormalStoneInfomation : MonoBehaviour, IStoneDestryable
 {
-
-
-
     /// <summary>
     /// 石の属性
     /// </summary>
@@ -37,7 +34,7 @@ public class NormalStoneInfomation : MonoBehaviour
         }
     }
 
-    public void DeleteMyself()
+    public void DestoryMyself()
     {
         Destroy(gameObject);
     }

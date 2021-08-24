@@ -6,10 +6,10 @@ public class ClearZone : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        NormalStoneInfomation temp = collision.gameObject.GetComponent<NormalStoneInfomation>();
+        IStoneDestryable temp = collision.gameObject.GetComponent<IStoneDestryable>();
         if(temp != null)
         {
-            temp.DeleteMyself();
+            temp.DestoryMyself();
         }
     }
 }
