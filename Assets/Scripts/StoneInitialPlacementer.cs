@@ -30,7 +30,7 @@ public class StoneInitialPlacementer : MonoBehaviour
         {
             float angle = 360f / (numOfStonesOfOneTeam * 2) * i * Mathf.Deg2Rad;
             GameObject obj = Instantiate(stone,TF);
-            obj.transform.position = new Vector3(Mathf.Cos(angle), 1, Mathf.Sin(angle)) * tempRadius;
+            obj.transform.position = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * tempRadius + new Vector3(0,0.2f,0);
             obj.GetComponent<NormalStoneInfomation>().SetMyAttribute((NormalStoneInfomation.StoneAttribute)(i % 2));
         }
         //==============================
@@ -38,7 +38,7 @@ public class StoneInitialPlacementer : MonoBehaviour
         //==============================
         GameObject kingObj = Instantiate(stone, TF);
         kingObj.GetComponent<MeshRenderer>().material = kingMaterial;
-        kingObj.transform.position = Vector3.up;
+        kingObj.transform.position = new Vector3(0, 0.2f, 0);
         kingObj.transform.localScale *= 1.2f;//ちょっと大きめにする
 
     }
