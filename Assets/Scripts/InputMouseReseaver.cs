@@ -23,11 +23,11 @@ public class InputMouseReseaver : MonoBehaviour
 
             foreach (RaycastHit hit in hits)
             {
-                Debug.Log("当たり判定チェック");
+                //Debug.Log("当たり判定チェック");
                 if (hit.collider.gameObject.CompareTag("Ground"))
                 {
                     action(hit.point);
-                    Debug.Log(hit.point);
+                    //Debug.Log(hit.point);
                 }
             }
 
