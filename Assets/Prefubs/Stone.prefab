@@ -125,3 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redMaterial: {fileID: 2100000, guid: cbbcd202b8bce1e4294a025426ed1a26, type: 2}
   blueMaterial: {fileID: 2100000, guid: a86fab5a43c71a6438b34b8e7f8e434f, type: 2}
+  juckMaterial: {fileID: 2100000, guid: 763146cc776d54b438a884e7f70f425f, type: 2}

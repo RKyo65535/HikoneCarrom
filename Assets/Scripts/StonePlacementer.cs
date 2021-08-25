@@ -11,9 +11,6 @@ public class StonePlacementer : MonoBehaviour
     [SerializeField] float carromSize;
     [Tooltip("1チームあたりが落とさないといけない石の数 > 2")]
     [SerializeField] int numOfStonesOfOneTeam;
-
-    [SerializeField] Material kingMaterial;//最後に倒す用のマテリアル
-
     Transform TF;
 
 
@@ -45,7 +42,6 @@ public class StonePlacementer : MonoBehaviour
         //==============================
         GameObject juckObj = Instantiate(stone, TF);
         juckObj.GetComponent<NormalStoneInfomation>().SetMyAttribute(StoneRole.JUCK, destroyEvent);
-        juckObj.GetComponent<MeshRenderer>().material = kingMaterial;
         juckObj.transform.position = new Vector3(0, 0.2f, 0);
         juckObj.transform.localScale *= 1.2f;//ちょっと大きめにする
 
