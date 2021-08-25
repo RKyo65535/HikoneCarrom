@@ -9,27 +9,27 @@ public class NormalStoneInfomation : MonoBehaviour, IStoneDestryable
 
     //マネージャーから受け取った関数
     //自身が破棄されたとき、マネージャー君に設定された奴を実行する
-    Action<StoneAttribute> destroyEvent;
+    Action<StoneRole> destroyEvent;
 
 
 
 
 
-    StoneAttribute stoneAttribute;
+    StoneRole stoneAttribute;
 
     [SerializeField] Material redMaterial;
     [SerializeField] Material blueMaterial;
 
-    public void SetMyAttribute(StoneAttribute attribute, Action<StoneAttribute> destoryEvent)
+    public void SetMyAttribute(StoneRole attribute, Action<StoneRole> destoryEvent)
     {
         this.destroyEvent = destoryEvent;
         stoneAttribute = attribute;
         switch (stoneAttribute)
         {
-            case StoneAttribute.RED:               
+            case StoneRole.RED:               
                 GetComponent<MeshRenderer>().material = redMaterial;
                 break;
-            case StoneAttribute.BLUE:
+            case StoneRole.BLUE:
                 GetComponent<MeshRenderer>().material = blueMaterial;
                 break;
             default:

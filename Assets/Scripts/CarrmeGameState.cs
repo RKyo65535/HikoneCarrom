@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarrmeGameState : MonoBehaviour
 {
 
-    [SerializeField] StoneInitialPlacementer stoneInitialPlacementer;
+    [SerializeField] StonePlacementer stoneInitialPlacementer;
     [SerializeField] PlayerStoneProjector stoneProjector;
     [SerializeField] InputMouseReseaver inputMouseReseaver;
 
@@ -71,7 +71,7 @@ public class CarrmeGameState : MonoBehaviour
     /// 石の方にこの関数を渡してしまいます。
     /// </summary>
     /// <param name="stoneAttribute"></param>
-    void StoneDestroyEvent(StoneAttribute stoneAttribute)
+    void StoneDestroyEvent(StoneRole stoneAttribute)
     {
         Debug.Log("色は"+stoneAttribute+"色です");
 

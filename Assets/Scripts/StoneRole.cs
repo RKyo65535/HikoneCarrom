@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// 石の属性
 /// </summary>
-public enum StoneAttribute
+public enum StoneRole
 {
     RED,
     BLUE,
