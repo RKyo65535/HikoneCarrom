@@ -131,12 +131,15 @@ public class CarrmeGameState : MonoBehaviour
             else
             {
                 //勝利条件を満たしてないのにジャックを落としたらダメ
-                for (int i = 0; i < juckPenaltyStoneCount; i++)
+                for (int i = 0;
+                    i < juckPenaltyStoneCount && stoneCounter.GetCurrentStoneCount((StoneRole)whoseTurn)<numOfStonesOfOneTeam;
+                    i++)
                 {
                     stoneCounter.AddOneStone((StoneRole)whoseTurn);
                     stonePlacementer.SetOneStone((StoneRole)whoseTurn, StoneDestroyEvent);
                 }
                 stonePlacementer.SetOneStone(StoneRole.JUCK, StoneDestroyEvent);
+                RefleshCountText();
             }
         }
         else
