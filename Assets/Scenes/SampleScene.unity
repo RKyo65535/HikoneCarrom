@@ -293,7 +293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 263.05, y: 183.6}
+  m_AnchoredPosition: {x: -262, y: 183.6}
   m_SizeDelta: {x: 273.90173, y: 82.94026}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &36120578
@@ -475,6 +475,8 @@ MonoBehaviour:
   whoseTurnText: {fileID: 1540564050}
   numOfStonesOfOneTeam: 12
   juckPenaltyStoneCount: 5
+  redTeamInitialStonePoint: {x: 8, y: 0.2, z: 0}
+  blueTeamInitialStonePoint: {x: -8, y: 0.2, z: 0}
 --- !u!1 &186899121
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -263, y: 100.66}
+  m_AnchoredPosition: {x: 263, y: 100.66}
   m_SizeDelta: {x: 273.90173, y: 82.94026}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &429213164
@@ -960,7 +962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 263.05, y: 100.66}
+  m_AnchoredPosition: {x: -262, y: 100.66}
   m_SizeDelta: {x: 273.90173, y: 82.94026}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615399443
@@ -1647,7 +1649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -263, y: 183.6}
+  m_AnchoredPosition: {x: 263, y: 183.6}
   m_SizeDelta: {x: 273.90173, y: 82.94026}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1473921529
@@ -1939,7 +1941,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6552f4509ab9d14e8670811b2ed6b06, type: 2}
+  - {fileID: 2100000, guid: a86fab5a43c71a6438b34b8e7f8e434f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2132,7 +2134,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6552f4509ab9d14e8670811b2ed6b06, type: 2}
+  - {fileID: 2100000, guid: cbbcd202b8bce1e4294a025426ed1a26, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
