@@ -9,6 +9,13 @@ public class CarrmeGameState : MonoBehaviour
     [SerializeField] PlayerStoneProjector stoneProjector;
     [SerializeField] InputMouseReseaver inputMouseReseaver;
 
+    [Tooltip("1チームあたりが落とさないといけない石の数 > 2")]
+    [SerializeField] int numOfStonesOfOneTeam;
+
+
+    StoneCounter stoneCounter;
+
+
     enum WhoseTurn
     {
         PLAYER1,
@@ -29,7 +36,9 @@ public class CarrmeGameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stonePlacementer.Initialize(StoneDestroyEvent);
+        stoneCounter = new StoneCounter(numOfStonesOfOneTeam);
+
+        stonePlacementer.Initialize(numOfStonesOfOneTeam,StoneDestroyEvent);
         PlasePlayerStone();
 
         inputMouseReseaver.action = ProjectPlayerStone;
@@ -80,11 +89,11 @@ public class CarrmeGameState : MonoBehaviour
 
         if(stoneAttribute == StoneRole.RED && whoseTurn == WhoseTurn.PLAYER1)
         {
-
+            stoneCounter.ReduceOneStone(stoneAttribute);
         }
         else if(stoneAttribute == StoneRole.BLUE && whoseTurn == WhoseTurn.PLAYER2)
         {
-
+            stoneCounter.ReduceOneStone(stoneAttribute);
         }
         else
         {

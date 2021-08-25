@@ -9,15 +9,13 @@ public class StonePlacementer : MonoBehaviour
 
     [Tooltip("カロムの石の大きさ")]
     [SerializeField] float carromSize;
-    [Tooltip("1チームあたりが落とさないといけない石の数 > 2")]
-    [SerializeField] int numOfStonesOfOneTeam;
     Transform TF;
 
 
 
 
     // Start is called before the first frame update
-    public void Initialize(Action<StoneRole> destroyEvent)
+    public void Initialize(int numOfStonesOfOneTeam,Action<StoneRole> destroyEvent)
     {
         //==============================
         //最初に、普通の色の石を配置する
