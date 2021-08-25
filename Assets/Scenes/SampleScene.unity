@@ -470,6 +470,8 @@ MonoBehaviour:
   stonePlacementer: {fileID: 1134034353}
   stoneProjector: {fileID: 201275678}
   inputMouseReseaver: {fileID: 907571010}
+  redTeamRemainStoneCountText: {fileID: 429213164}
+  blueTeamRemainStoneCountText: {fileID: 615399443}
   numOfStonesOfOneTeam: 12
 --- !u!1 &186899121
 GameObject:
@@ -1851,7 +1853,7 @@ GameObject:
   - component: {fileID: 1822226916}
   - component: {fileID: 1822226915}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: RemainStoneCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

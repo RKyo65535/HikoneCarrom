@@ -46,6 +46,17 @@
         return false;
     }
 
-
-
+    public int GetCurrentStoneCount(StoneRole stone)
+    {
+        switch (stone)
+        {
+            case StoneRole.RED:
+                return redStone;
+            case StoneRole.BLUE:
+                return blueStone;
+            default:
+                break;
+        }
+        return -1;
+    }
 }

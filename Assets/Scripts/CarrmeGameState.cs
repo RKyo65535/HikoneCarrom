@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarrmeGameState : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class CarrmeGameState : MonoBehaviour
     [SerializeField] StonePlacementer stonePlacementer;
     [SerializeField] PlayerStoneProjector stoneProjector;
     [SerializeField] InputMouseReseaver inputMouseReseaver;
+
+    [SerializeField] Text redTeamRemainStoneCountText;
+    [SerializeField] Text blueTeamRemainStoneCountText;
 
     [Tooltip("1チームあたりが落とさないといけない石の数 > 2")]
     [SerializeField] int numOfStonesOfOneTeam;
@@ -37,6 +41,8 @@ public class CarrmeGameState : MonoBehaviour
     void Start()
     {
         stoneCounter = new StoneCounter(numOfStonesOfOneTeam);
+        redTeamRemainStoneCountText.text = "" + stoneCounter.GetCurrentStoneCount(StoneRole.RED);
+        blueTeamRemainStoneCountText.text = "" + stoneCounter.GetCurrentStoneCount(StoneRole.BLUE);
 
         stonePlacementer.Initialize(numOfStonesOfOneTeam,StoneDestroyEvent);
         PlasePlayerStone();
@@ -90,10 +96,12 @@ public class CarrmeGameState : MonoBehaviour
         if(stoneAttribute == StoneRole.RED && whoseTurn == WhoseTurn.PLAYER1)
         {
             stoneCounter.ReduceOneStone(stoneAttribute);
+            redTeamRemainStoneCountText.text = ""+stoneCounter.GetCurrentStoneCount(stoneAttribute);
         }
         else if(stoneAttribute == StoneRole.BLUE && whoseTurn == WhoseTurn.PLAYER2)
         {
             stoneCounter.ReduceOneStone(stoneAttribute);
+            blueTeamRemainStoneCountText.text = ""+stoneCounter.GetCurrentStoneCount(stoneAttribute);
         }
         else
         {
