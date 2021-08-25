@@ -12,6 +12,7 @@ public class CarrmeGameState : MonoBehaviour
 
     [SerializeField] Text redTeamRemainStoneCountText;
     [SerializeField] Text blueTeamRemainStoneCountText;
+    [SerializeField] Text whoseTurnText;
 
     [Tooltip("1チームあたりが落とさないといけない石の数 > 2")]
     [SerializeField] int numOfStonesOfOneTeam;
@@ -87,12 +88,12 @@ public class CarrmeGameState : MonoBehaviour
     {
         gameState = GameState.WAIT_FOR_SHOOT;//カロムがはじかれるのを待っている状態
         stoneProjector.SetNewStone(new Vector3(8, 0.2f, 0), ResetPlayerStone, IsWaitForShooting);
+        whoseTurnText.text = whoseTurn + "のターン！";
     }
 
     void SwitchTurn()
     {
         whoseTurn = (WhoseTurn)(((int)whoseTurn + 1) % 2);
-        Debug.Log(whoseTurn + "のターンです");
     }
 
 
