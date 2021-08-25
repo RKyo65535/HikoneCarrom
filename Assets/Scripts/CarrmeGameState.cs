@@ -41,8 +41,7 @@ public class CarrmeGameState : MonoBehaviour
     void Start()
     {
         stoneCounter = new StoneCounter(numOfStonesOfOneTeam);
-        redTeamRemainStoneCountText.text = "" + stoneCounter.GetCurrentStoneCount(StoneRole.RED);
-        blueTeamRemainStoneCountText.text = "" + stoneCounter.GetCurrentStoneCount(StoneRole.BLUE);
+        RefleshCountText();
 
         stonePlacementer.Initialize(numOfStonesOfOneTeam,StoneDestroyEvent);
         PlasePlayerStone();
@@ -108,13 +107,14 @@ public class CarrmeGameState : MonoBehaviour
                     stoneCounter.AddOneStone((StoneRole)whoseTurn);
                     stonePlacementer.SetOneStone((StoneRole)whoseTurn, StoneDestroyEvent);
                 }
+                stonePlacementer.SetOneStone(StoneRole.JUCK, StoneDestroyEvent);
             }
         }
         else
         {
             //ジャック以外が落ちた場合は普通に処理
             stoneCounter.ReduceOneStone(stoneAttribute);
-            redTeamRemainStoneCountText.text = ""+stoneCounter.GetCurrentStoneCount(stoneAttribute);
+            RefleshCountText();
         }
 
     }
@@ -134,6 +134,11 @@ public class CarrmeGameState : MonoBehaviour
         return false;
     }
 
+    void RefleshCountText()
+    {
+        redTeamRemainStoneCountText.text = "" + stoneCounter.GetCurrentStoneCount(StoneRole.RED);
+        blueTeamRemainStoneCountText.text = "" + stoneCounter.GetCurrentStoneCount(StoneRole.BLUE);
 
+    }
 
 }

@@ -473,6 +473,7 @@ MonoBehaviour:
   redTeamRemainStoneCountText: {fileID: 429213164}
   blueTeamRemainStoneCountText: {fileID: 615399443}
   numOfStonesOfOneTeam: 12
+  juckPenaltyStoneCount: 5
 --- !u!1 &186899121
 GameObject:
   m_ObjectHideFlags: 0
