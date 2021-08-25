@@ -19,6 +19,7 @@ public class NormalStoneInfomation : MonoBehaviour, IStoneDestryable
 
     [SerializeField] Material redMaterial;
     [SerializeField] Material blueMaterial;
+    [SerializeField] Material juckMaterial;
 
     public void SetMyAttribute(StoneRole attribute, Action<StoneRole> destoryEvent)
     {
@@ -31,6 +32,9 @@ public class NormalStoneInfomation : MonoBehaviour, IStoneDestryable
                 break;
             case StoneRole.BLUE:
                 GetComponent<MeshRenderer>().material = blueMaterial;
+                break;
+            case StoneRole.JUCK:
+                GetComponent<MeshRenderer>().material = juckMaterial;
                 break;
             default:
                 break;

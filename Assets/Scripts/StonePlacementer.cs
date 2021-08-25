@@ -62,7 +62,6 @@ public class StonePlacementer : MonoBehaviour
         if (stoneRole == StoneRole.JUCK)
         {
             obj.transform.localScale *= 1.2f;//ちょっと大きめにする
-            obj.GetComponent<MeshRenderer>().material = kingMaterial;
         }
     }
 }
