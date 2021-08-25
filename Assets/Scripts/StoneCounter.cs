@@ -24,6 +24,22 @@
         }
     }
 
+    public void AddOneStone(StoneRole stone)
+    {
+        switch (stone)
+        {
+            case StoneRole.RED:
+                redStone += 1;
+                break;
+            case StoneRole.BLUE:
+                blueStone += 1;
+                break;
+            default:
+                break;
+        }
+    }
+
+
     public bool IsThereNoStone(StoneRole stone)
     {
         switch (stone)

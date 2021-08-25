@@ -15,7 +15,7 @@ public class CarrmeGameState : MonoBehaviour
 
     [Tooltip("1チームあたりが落とさないといけない石の数 > 2")]
     [SerializeField] int numOfStonesOfOneTeam;
-
+    [SerializeField] int juckPenaltyStoneCount;
 
     StoneCounter stoneCounter;
 
@@ -93,21 +93,29 @@ public class CarrmeGameState : MonoBehaviour
     {
         Debug.Log("落ちた石の色は"+stoneAttribute+"色です");
 
-        if(stoneAttribute == StoneRole.RED && whoseTurn == WhoseTurn.PLAYER1)
+        if(stoneAttribute == StoneRole.JUCK)
         {
-            stoneCounter.ReduceOneStone(stoneAttribute);
-            redTeamRemainStoneCountText.text = ""+stoneCounter.GetCurrentStoneCount(stoneAttribute);
-        }
-        else if(stoneAttribute == StoneRole.BLUE && whoseTurn == WhoseTurn.PLAYER2)
-        {
-            stoneCounter.ReduceOneStone(stoneAttribute);
-            blueTeamRemainStoneCountText.text = ""+stoneCounter.GetCurrentStoneCount(stoneAttribute);
+            if (stoneCounter.IsThereNoStone((StoneRole)whoseTurn))
+            {
+                //勝利条件を満たしていたら勝ちの処理
+                Debug.LogError(whoseTurn + "のかち");
+            }
+            else
+            {
+                //勝利条件を満たしてないのにジャックを落としたらダメ
+                for(int i=0;i< juckPenaltyStoneCount; i++)
+                {
+                    stoneCounter.AddOneStone((StoneRole)whoseTurn);
+                    stonePlacementer.SetOneStone((StoneRole)whoseTurn, StoneDestroyEvent);
+                }
+            }
         }
         else
         {
-            stonePlacementer.SetOneStone(stoneAttribute, StoneDestroyEvent);
+            //ジャック以外が落ちた場合は普通に処理
+            stoneCounter.ReduceOneStone(stoneAttribute);
+            redTeamRemainStoneCountText.text = ""+stoneCounter.GetCurrentStoneCount(stoneAttribute);
         }
-
 
     }
     
