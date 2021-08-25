@@ -19,6 +19,8 @@ public class CarrmeGameState : MonoBehaviour
 
     StoneCounter stoneCounter;
 
+    bool canContinueTurn= false;//連続で石を打つことができるフラグ
+
 
     enum WhoseTurn
     {
@@ -66,7 +68,18 @@ public class CarrmeGameState : MonoBehaviour
 
     void ResetPlayerStone()
     {
-        SwitchTurn();
+        //連続攻撃の可否を判断
+        if (canContinueTurn)
+        {
+            Debug.Log("連続攻撃");
+            canContinueTurn = false;
+        }
+        else
+        {
+            SwitchTurn();
+        }
+
+
         PlasePlayerStone();
     }
 
@@ -91,8 +104,9 @@ public class CarrmeGameState : MonoBehaviour
     /// <param name="stoneAttribute"></param>
     void StoneDestroyEvent(StoneRole stoneAttribute)
     {
-        Debug.Log("落ちた石の色は"+stoneAttribute+"色です");
+        //Debug.Log("落ちた石の色は"+stoneAttribute+"色です");
 
+        //ジャックが落ちたときの処理を最初に考える。
         if(stoneAttribute == StoneRole.JUCK)
         {
             if (stoneCounter.IsThereNoStone((StoneRole)whoseTurn))
@@ -117,6 +131,15 @@ public class CarrmeGameState : MonoBehaviour
             stoneCounter.ReduceOneStone(stoneAttribute);
             RefleshCountText();
         }
+
+
+        //自身と同じ色の石を落とした場合、連続行動ができるのだ
+        if((StoneRole)whoseTurn == stoneAttribute)
+        {
+            canContinueTurn = true;
+        }
+
+
 
     }
     
