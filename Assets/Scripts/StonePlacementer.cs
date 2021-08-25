@@ -14,6 +14,11 @@ public class StonePlacementer : MonoBehaviour
 
     [SerializeField] Material kingMaterial;//最後に倒す用のマテリアル
 
+    Transform TF;
+
+
+
+
     // Start is called before the first frame update
     public void Initialize(Action<StoneRole> destroyEvent)
     {
@@ -21,7 +26,7 @@ public class StonePlacementer : MonoBehaviour
         //最初に、普通の色の石を配置する
         //==============================
 
-        Transform TF = transform;
+        TF = transform;
         //まずは分母を求める
         float sine1 = Mathf.Sin((numOfStonesOfOneTeam * 2 - 2) * 180f * Mathf.Deg2Rad / (numOfStonesOfOneTeam * 4));
         //分子も求める
@@ -47,8 +52,17 @@ public class StonePlacementer : MonoBehaviour
     }
 
 
-    public void SetOneStone(StoneRole stoneRole)
+    public void SetOneStone(StoneRole stoneRole, Action<StoneRole> destroyEvent)
     {
 
+        GameObject obj = Instantiate(stone, TF);
+        obj.transform.position = new Vector3((UnityEngine.Random.value-0.5f)*0.1f, 0.2f, (UnityEngine.Random.value - 0.5f) * 0.1f);
+        obj.GetComponent<NormalStoneInfomation>().SetMyAttribute(stoneRole, destroyEvent);
+
+        if (stoneRole == StoneRole.JUCK)
+        {
+            obj.transform.localScale *= 1.2f;//ちょっと大きめにする
+            obj.GetComponent<MeshRenderer>().material = kingMaterial;
+        }
     }
 }

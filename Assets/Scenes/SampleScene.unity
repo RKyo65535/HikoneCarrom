@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c22fe1b9ce1f54886db508464b412e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoneInitialPlacementer: {fileID: 1134034353}
+  stonePlacementer: {fileID: 1134034353}
   stoneProjector: {fileID: 201275678}
   inputMouseReseaver: {fileID: 907571010}
 --- !u!1 &186899121

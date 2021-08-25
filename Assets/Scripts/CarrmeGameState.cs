@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarrmeGameState : MonoBehaviour
 {
 
-    [SerializeField] StonePlacementer stoneInitialPlacementer;
+    [SerializeField] StonePlacementer stonePlacementer;
     [SerializeField] PlayerStoneProjector stoneProjector;
     [SerializeField] InputMouseReseaver inputMouseReseaver;
 
@@ -29,7 +29,7 @@ public class CarrmeGameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stoneInitialPlacementer.Initialize(StoneDestroyEvent);
+        stonePlacementer.Initialize(StoneDestroyEvent);
         ResetPlayerStone();
 
         inputMouseReseaver.action = ProjectPlayerStone;
@@ -73,7 +73,21 @@ public class CarrmeGameState : MonoBehaviour
     /// <param name="stoneAttribute"></param>
     void StoneDestroyEvent(StoneRole stoneAttribute)
     {
-        Debug.Log("色は"+stoneAttribute+"色です");
+        Debug.Log("落ちた石の色は"+stoneAttribute+"色です");
+
+        if(stoneAttribute == StoneRole.RED && whoseTurn == WhoseTurn.PLAYER1)
+        {
+
+        }
+        else if(stoneAttribute == StoneRole.BLUE && whoseTurn == WhoseTurn.PLAYER2)
+        {
+
+        }
+        else
+        {
+            stonePlacementer.SetOneStone(stoneAttribute, StoneDestroyEvent);
+        }
+
 
     }
     
