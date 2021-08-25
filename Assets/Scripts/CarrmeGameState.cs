@@ -61,8 +61,6 @@ public class CarrmeGameState : MonoBehaviour
         stoneProjector.SetNewStone(new Vector3(8, 0.2f, 0), ResetPlayerStone, IsWaitForShooting);
     }
 
-
-
     void SwitchTurn()
     {
         whoseTurn = (WhoseTurn)(((int)whoseTurn + 1) % 2);

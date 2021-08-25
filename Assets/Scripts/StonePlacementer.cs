@@ -47,7 +47,6 @@ public class StonePlacementer : MonoBehaviour
 
     }
 
-
     public void SetOneStone(StoneRole stoneRole, Action<StoneRole> destroyEvent)
     {
 
