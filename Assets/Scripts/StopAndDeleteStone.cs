@@ -11,6 +11,7 @@ public class StopAndDeleteStone : MonoBehaviour
     float count;
 
     public Action beforeDeleteMyself;
+    public Func<bool> isWaitForShooting;
 
     Rigidbody RB;
 
@@ -23,7 +24,7 @@ public class StopAndDeleteStone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(RB.velocity == Vector3.zero)
+        if(RB.velocity == Vector3.zero && !isWaitForShooting())
         {
             count += Time.deltaTime;
             if(count > timeLimit)

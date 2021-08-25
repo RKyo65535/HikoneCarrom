@@ -30,7 +30,7 @@ public class CarrmeGameState : MonoBehaviour
     void Start()
     {
         stonePlacementer.Initialize(StoneDestroyEvent);
-        ResetPlayerStone();
+        PlasePlayerStone();
 
         inputMouseReseaver.action = ProjectPlayerStone;
     }
@@ -52,8 +52,13 @@ public class CarrmeGameState : MonoBehaviour
     void ResetPlayerStone()
     {
         SwitchTurn();
+        PlasePlayerStone();
+    }
+
+    void PlasePlayerStone()
+    {
         gameState = GameState.WAIT_FOR_SHOOT;//カロムがはじかれるのを待っている状態
-        stoneProjector.SetNewStone(new Vector3(8, 0.2f, 0),ResetPlayerStone);
+        stoneProjector.SetNewStone(new Vector3(8, 0.2f, 0), ResetPlayerStone, IsWaitForShooting);
     }
 
 
@@ -91,6 +96,21 @@ public class CarrmeGameState : MonoBehaviour
 
     }
     
+
+    /// <summary>
+    /// 打つ前の状態ならtrueを返す関数。
+    /// カウントダウンの際にプレイヤーの石のオブジェクトが使う
+    /// </summary>
+    /// <returns></returns>
+    bool IsWaitForShooting()
+    {
+        if(gameState == GameState.WAIT_FOR_SHOOT)
+        {
+            return true;
+        }
+        return false;
+    }
+
 
 
 }
