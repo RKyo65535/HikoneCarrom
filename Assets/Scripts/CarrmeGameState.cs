@@ -40,12 +40,13 @@ public class CarrmeGameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //指示された数だけ石を置く
         stoneCounter = new StoneCounter(numOfStonesOfOneTeam);
         RefleshCountText();
-
         stonePlacementer.Initialize(numOfStonesOfOneTeam,StoneDestroyEvent);
-        PlasePlayerStone();
 
+        //石を置き、石を弾けるようにする
+        PlasePlayerStone();
         inputMouseReseaver.action = ProjectPlayerStone;
     }
 
