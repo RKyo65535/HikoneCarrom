@@ -25,7 +25,7 @@ public class TurnImageSlideAnimation : MonoBehaviour
 
 
 
-    private void Start()
+    public void Initialize()
     {
 
         myRectTransform = GetComponent<RectTransform>();

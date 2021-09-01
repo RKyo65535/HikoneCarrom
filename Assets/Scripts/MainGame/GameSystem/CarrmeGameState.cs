@@ -4,9 +4,12 @@ using UnityEngine.UI;
 public class CarrmeGameState : MonoBehaviour
 {
 
+    //マスターから管理すべきオブジェクトたち
     [SerializeField] StonePlacementer stonePlacementer;
     [SerializeField] PlayerStoneProjector stoneProjector;
     [SerializeField] InputMouseReseaver inputMouseReseaver;
+    [SerializeField] TurnImageSlideAnimation turnImageSlideAnimation;
+
 
     [SerializeField] Text redTeamRemainStoneCountText;
     [SerializeField] Text blueTeamRemainStoneCountText;
@@ -44,10 +47,13 @@ public class CarrmeGameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //オブジェクトたちの初期化
+        turnImageSlideAnimation.Initialize();
+        stonePlacementer.Initialize(numOfStonesOfOneTeam, StoneDestroyEvent);
+
         //指示された数だけ石を置く
         stoneCounter = new StoneCounter(numOfStonesOfOneTeam);
         RefleshCountText();
-        stonePlacementer.Initialize(numOfStonesOfOneTeam, StoneDestroyEvent);
 
         //石を置き、石を弾けるようにする
         PlasePlayerStone();
@@ -87,8 +93,13 @@ public class CarrmeGameState : MonoBehaviour
 
     void PlasePlayerStone()
     {
-        gameState = GameState.WAIT_FOR_SHOOT;//カロムがはじかれるのを待っている状態
+        //カロムがはじかれるのを待っている状態にする
+        gameState = GameState.WAIT_FOR_SHOOT;
+
+        //ターン表示を明らかに行う
         whoseTurnText.text = whoseTurn + "のターン！";
+        turnImageSlideAnimation.MoveImage((StoneRole)whoseTurn);
+
 
         switch (whoseTurn)
         {
