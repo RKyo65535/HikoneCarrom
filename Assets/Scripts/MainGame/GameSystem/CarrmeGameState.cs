@@ -8,8 +8,8 @@ public class CarrmeGameState : MonoBehaviour
     [SerializeField] StonePlacementer stonePlacementer;
     [SerializeField] PlayerStoneProjector stoneProjector;
     [SerializeField] InputMouseReseaver inputMouseReseaver;
-    [SerializeField] TurnImageSlideAnimation turnImageSlideAnimation;
-    [SerializeField] WinImageMoveAnimation winImageMoveAnimation;
+    [SerializeField] ImageSlideAnimation turnImageSlideAnimation;
+    [SerializeField] ImageSlideAnimation winImageMoveAnimation;
 
 
     [SerializeField] Text redTeamRemainStoneCountText;

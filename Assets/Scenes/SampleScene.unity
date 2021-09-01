@@ -475,7 +475,7 @@ MonoBehaviour:
   redTeamRemainStoneCountText: {fileID: 429213164}
   blueTeamRemainStoneCountText: {fileID: 615399443}
   whoseTurnText: {fileID: 1540564050}
-  numOfStonesOfOneTeam: 3
+  numOfStonesOfOneTeam: 2
   juckPenaltyStoneCount: 5
   redTeamInitialStonePoint: {x: 8, y: 0.2, z: 0}
   blueTeamInitialStonePoint: {x: -8, y: 0.2, z: 0}
@@ -771,12 +771,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 356919158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04f3245d5875fe84388d75fd936a1f95, type: 3}
+  m_Script: {fileID: 11500000, guid: c997876c1ba01e84ab6ebadc59d7a220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvasScaler: {fileID: 1822226916}
   redTeamSprite: {fileID: 21300000, guid: b66f8d979e7121347b735c0f1e3b7120, type: 3}
   blueTeamSprite: {fileID: 21300000, guid: 23a2ad01cabb9454d9a6f6fe8d22a8e3, type: 3}
+  startDirection: 0
+  endDirection: 8
+  waitingMiliseconds: 16
+  loopTimes: 100
 --- !u!114 &356919161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1691,6 +1695,10 @@ MonoBehaviour:
   canvasScaler: {fileID: 1822226916}
   redTeamSprite: {fileID: 21300000, guid: 7d350696243329540b3c098572745137, type: 3}
   blueTeamSprite: {fileID: 21300000, guid: ca47def3a1a07a746a25ff37525e2a4a, type: 3}
+  startDirection: 2
+  endDirection: 6
+  waitingMiliseconds: 16
+  loopTimes: 100
 --- !u!1 &1457448551
 GameObject:
   m_ObjectHideFlags: 0
