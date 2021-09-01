@@ -79,19 +79,22 @@ public class CarrmeGameState : MonoBehaviour
 
     void ResetPlayerStone()
     {
-        //連続攻撃の可否を判断
-        if (canContinueTurn)
+        if (gameState == GameState.SIMURATING)
         {
-            Debug.Log("連続攻撃");
-            canContinueTurn = false;
-        }
-        else
-        {
-            SwitchTurn();
-        }
+            //連続攻撃の可否を判断
+            if (canContinueTurn)
+            {
+                Debug.Log("連続攻撃");
+                canContinueTurn = false;
+            }
+            else
+            {
+                SwitchTurn();
+            }
 
 
-        PlasePlayerStone();
+            PlasePlayerStone();
+        }
     }
 
     void PlasePlayerStone()
