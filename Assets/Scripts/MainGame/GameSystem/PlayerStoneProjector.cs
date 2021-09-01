@@ -12,12 +12,13 @@ public class PlayerStoneProjector : MonoBehaviour
     public GameObject currentMyStone;//現在操作中の石
 
 
-    public void SetNewStone(Vector3 startPos,Action action,Func<bool> waitingJudge)
+    public void SetNewStone(Vector3 startPos,Action beforeDeleteMyself,Action penaltyMyself,Func<bool> waitingJudge)
     {
         currentMyStone = Instantiate(stone);
         currentMyStone.transform.position = startPos;
         currentMyStone.GetComponent<MeshRenderer>().material = playerMaterial;
-        currentMyStone.GetComponent<StopAndDeleteStone>().beforeDeleteMyself = action;
+        currentMyStone.GetComponent<StopAndDeleteStone>().beforeDeleteMyself = beforeDeleteMyself;
+        currentMyStone.GetComponent<StopAndDeleteStone>().penaltyMyself = penaltyMyself;
         currentMyStone.GetComponent<StopAndDeleteStone>().isWaitForShooting = waitingJudge;
     }
 

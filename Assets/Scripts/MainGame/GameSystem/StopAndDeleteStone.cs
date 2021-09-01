@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StopAndDeleteStone : MonoBehaviour
+public class StopAndDeleteStone : MonoBehaviour,IStoneDestryable
 {
 
     [Tooltip("何秒止まっていたら消えるか")]
@@ -11,6 +11,7 @@ public class StopAndDeleteStone : MonoBehaviour
     float count;
 
     public Action beforeDeleteMyself;
+    public Action penaltyMyself;
     public Func<bool> isWaitForShooting;
 
     Rigidbody RB;
@@ -37,5 +38,11 @@ public class StopAndDeleteStone : MonoBehaviour
         {
             count = 0;
         }
+    }
+
+    public void DestoryMyself()
+    {
+        RB.velocity *= 0.01f;
+        penaltyMyself();
     }
 }

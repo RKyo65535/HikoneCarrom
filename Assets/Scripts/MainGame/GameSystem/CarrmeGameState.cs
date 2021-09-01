@@ -107,10 +107,10 @@ public class CarrmeGameState : MonoBehaviour
         switch (whoseTurn)
         {
             case WhoseTurn.PLAYER1:
-                stoneProjector.SetNewStone(redTeamInitialStonePoint, ResetPlayerStone, IsWaitForShooting);
+                stoneProjector.SetNewStone(redTeamInitialStonePoint, ResetPlayerStone, PlayerPenalty, IsWaitForShooting);
                 break;
             case WhoseTurn.PLAYER2:
-                stoneProjector.SetNewStone(blueTeamInitialStonePoint, ResetPlayerStone, IsWaitForShooting);
+                stoneProjector.SetNewStone(blueTeamInitialStonePoint, ResetPlayerStone, PlayerPenalty, IsWaitForShooting);
                 break;
             default:
                 break;
@@ -123,6 +123,20 @@ public class CarrmeGameState : MonoBehaviour
         whoseTurn = (WhoseTurn)(((int)whoseTurn + 1) % 2);
     }
 
+
+    /// <summary>
+    /// プレイヤーが自身の石をコーナーに当ててしまった場合の処理
+    /// 自分自身の色の石を中心に置く
+    /// </summary>
+    void PlayerPenalty()
+    {
+        if(stoneCounter.GetCurrentStoneCount((StoneRole)whoseTurn) < numOfStonesOfOneTeam)
+        {
+            stoneCounter.AddOneStone((StoneRole)whoseTurn);
+            stonePlacementer.SetOneStone((StoneRole)whoseTurn, StoneDestroyEvent);
+        }
+        RefleshCountText();
+    }
 
 
     /// <summary>
