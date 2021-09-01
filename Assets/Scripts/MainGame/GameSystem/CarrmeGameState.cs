@@ -9,6 +9,7 @@ public class CarrmeGameState : MonoBehaviour
     [SerializeField] PlayerStoneProjector stoneProjector;
     [SerializeField] InputMouseReseaver inputMouseReseaver;
     [SerializeField] TurnImageSlideAnimation turnImageSlideAnimation;
+    [SerializeField] WinImageMoveAnimation winImageMoveAnimation;
 
 
     [SerializeField] Text redTeamRemainStoneCountText;
@@ -37,6 +38,7 @@ public class CarrmeGameState : MonoBehaviour
     {
         WAIT_FOR_SHOOT,//カロムがはじかれるのを待っている状態
         SIMURATING,//実際に弾が動いている状態
+        END_GAME,//ゲームが終了した状態
     }
 
     WhoseTurn whoseTurn;
@@ -49,6 +51,7 @@ public class CarrmeGameState : MonoBehaviour
     {
         //オブジェクトたちの初期化
         turnImageSlideAnimation.Initialize();
+        winImageMoveAnimation.Initialize();
         stonePlacementer.Initialize(numOfStonesOfOneTeam, StoneDestroyEvent);
 
         //指示された数だけ石を置く
@@ -137,7 +140,8 @@ public class CarrmeGameState : MonoBehaviour
             if (stoneCounter.IsThereNoStone((StoneRole)whoseTurn))
             {
                 //勝利条件を満たしていたら勝ちの処理
-                Debug.LogError(whoseTurn + "のかち");
+                winImageMoveAnimation.StartAnimation((StoneRole)whoseTurn);
+                gameState = GameState.END_GAME;
             }
             else
             {
