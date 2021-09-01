@@ -98,7 +98,7 @@ public class CarrmeGameState : MonoBehaviour
 
         //ターン表示を明らかに行う
         whoseTurnText.text = whoseTurn + "のターン！";
-        turnImageSlideAnimation.MoveImage((StoneRole)whoseTurn);
+        turnImageSlideAnimation.StartAnimation((StoneRole)whoseTurn);
 
 
         switch (whoseTurn)

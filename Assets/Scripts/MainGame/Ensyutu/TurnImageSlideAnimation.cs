@@ -9,7 +9,7 @@ using UnityEngine.UI;
 /// 正直Taskを用いてアニメーションさせる習作のスクリプトのため、実際はもっと別な手段を取った方がUnityでは賢い
 /// 本来であれば重たい処理を別スレッドに行わせるためにTaskを作るのだが、今回はTask.Delayの為だけにTask使ってる感がある。
 /// </summary>
-public class TurnImageSlideAnimation : MonoBehaviour
+public class TurnImageSlideAnimation : MonoBehaviour,ITeamUIAnimationable
 {
     [SerializeField] CanvasScaler canvasScaler;
     RectTransform myRectTransform;
@@ -63,7 +63,7 @@ public class TurnImageSlideAnimation : MonoBehaviour
     /// 実際に画像を変更し、動かす感じのやつ
     /// </summary>
     /// <param name="stone"></param>
-    public void MoveImage(StoneRole stone)
+    public void StartAnimation(StoneRole stone)
     {
         switch (stone)
         {
