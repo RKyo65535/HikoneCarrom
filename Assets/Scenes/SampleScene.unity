@@ -475,7 +475,7 @@ MonoBehaviour:
   redTeamRemainStoneCountText: {fileID: 429213164}
   blueTeamRemainStoneCountText: {fileID: 615399443}
   whoseTurnText: {fileID: 1540564050}
-  numOfStonesOfOneTeam: 2
+  numOfStonesOfOneTeam: 12
   juckPenaltyStoneCount: 5
   redTeamInitialStonePoint: {x: 8, y: 0.2, z: 0}
   blueTeamInitialStonePoint: {x: -8, y: 0.2, z: 0}
@@ -1640,7 +1640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -625.2, y: -542.1}
+  m_AnchoredPosition: {x: -625.2, y: 0}
   m_SizeDelta: {x: 968, y: 1814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1151211980
